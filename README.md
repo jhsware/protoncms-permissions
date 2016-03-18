@@ -1,0 +1,1 @@
+Generate dummy data for object prototypes with schema.

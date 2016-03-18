@@ -1,0 +1,28 @@
+{
+  "name": "protoncms-permissions",
+  "version": "0.1.1",
+  "description": "Permissions implementation",
+  "repository" : { 
+      "type" : "git",
+      "url" : "https://github.com/jhsware/protoncms-permissions.git"
+  },
+  "main": "./lib/index.js",
+  "peerDependencies": {
+    "protoncms-core": "~0.1.0",
+    "component-registry": "~0.1.0",
+    "mquery": "~1.8.0",
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "del": "^1.1.0",
+    "expect.js": "~0.3.1",
+    "mocha": "~1.18.2",
+    "mocha-better-spec-reporter": "^1.1.1",
+    "react-tools": "~0.12.1"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --reporter mocha-better-spec-reporter"
+  },
+  "author": "Sebastian Ware",
+  "license": "Copyright Sebastian Ware"
+}
