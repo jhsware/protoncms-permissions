@@ -11,7 +11,8 @@
     "protoncms-core": ">=0.1.0",
     "component-registry": ">=0.1.0",
     "mquery": ">=1.8.0",
-    "lodash": ">=2.4.1"
+    "lodash": ">=2.4.1",
+    "aqb": ">=2.1.0"
   },
   "devDependencies": {
     "del": ">=1.1.0",
