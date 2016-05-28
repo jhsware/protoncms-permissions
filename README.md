@@ -231,7 +231,7 @@ Unlike data access permissions, the UX permissions are only role aware. The obvi
         
     })
 
-We initialize the permissionUtility if we can already when the code is loaded. This way we can get a warning on startup if we have forgotten to define a permission that is used for this component.
+We preferably want to initialize the permissionUtility when the code is loaded. This way we can get a warning on startup if we have forgotten to define a permission that is used for this component.
 
 If the component doesn't know what type of permissions it requires until at runtime we can set this.permissions in this.getInitialState.
 
