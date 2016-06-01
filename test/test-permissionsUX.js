@@ -67,15 +67,12 @@ describe('UX Permissions', function() {
         expect(permissionUtility).to.not.be(undefined);
     });
     
-    it('can be queried without object', function() {        
+    it('can be queried for exisiting permissions without object', function() {        
         var permission = permissionUtility.user(editorPrincipal).may('create').this()
         expect(permission).to.equal(true);
         
         var permission = permissionUtility.user(editorPrincipal).may('update').this()
         expect(permission).to.equal(true);
-        
-        var permission = permissionUtility.user(editorPrincipal).may('delete').this()
-        expect(permission).to.equal(false);
     });
     
     it('can be queried with object', function() {
@@ -83,6 +80,18 @@ describe('UX Permissions', function() {
             data: "editor_may_not_edit_this_one" // Just some fake content
         }
         var permission = permissionUtility.user(editorPrincipal).may('create').this(tmpObj)
+        
         expect(permission).to.equal(false);
     });
+    
+    it('raises error when querying non-existant permissions', function() {                
+        try {
+            var permission = permissionUtility.user(editorPrincipal).may('delete').this()
+            var success = true
+        } catch (e) {
+            var success = false
+        }
+        expect(success).to.equal(false);
+    });
+    
 });
