@@ -189,13 +189,13 @@ UX permissions allow us to restrict what React components we are allowed to rend
     
     var permissionsUtilityBase = require('protoncms-permissions').permissionsUtilityBase;
     
-    var hasUXPermission = require('protoncms-permissions').hasUXPermission;
+    var checkUXRolePermissions = require('protoncms-permissions').checkUXRolePermissions;
     
     var _permissionChecks = {
-        create:     function (user, obj) {  return hasUXPermission(user, ['admin', 'editor']); },
-        read:       function (user, obj) {  return hasUXPermission(user, ['admin', 'editor', 'writer']); },
-        list:       function (user, obj) {  return hasUXPermission(user, ['admin', 'editor', 'writer']); },
-        update:     function (user, obj) {  return hasUXPermission(user, ['admin', 'editor', 'writer']); }
+        create:     function (user, obj) {  return checkUXRolePermissions(user, ['admin', 'editor']); },
+        read:       function (user, obj) {  return checkUXRolePermissions(user, ['admin', 'editor', 'writer']); },
+        list:       function (user, obj) {  return checkUXRolePermissions(user, ['admin', 'editor', 'writer']); },
+        update:     function (user, obj) {  return checkUXRolePermissions(user, ['admin', 'editor', 'writer']); }
     }
     
     var permissionsDict = {

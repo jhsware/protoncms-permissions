@@ -9,7 +9,7 @@ var Principal = require('../lib/principals').Principal;
 
 var IPermissions = require('protoncms-core').interfaces.IPermissions;
 
-var hasUXPermission = require('../lib/index').hasUXPermission;
+var checkUXRolePermissions = require('../lib/index').checkUXRolePermissions;
 var permissionsUtilityBase = require('../lib/index').permissionsUtilityBase;
 
 var editorPrincipal = new Principal({
@@ -33,13 +33,13 @@ describe('UX Permissions', function() {
                 if (obj && user.role === 'editor') {
                     return (obj.data !== "editor_may_not_edit_this_one")
                 } else {
-                    return hasUXPermission(user, ['admin', 'editor']); 
+                    return checkUXRolePermissions(user, ['admin', 'editor']); 
                 } 
                 
             },
-            read:       function (user, obj) {  return hasUXPermission(user, ['admin', 'editor', 'writer']); },
-            list:       function (user, obj) {  return hasUXPermission(user, ['admin', 'editor', 'writer']); },
-            update:     function (user, obj) {  return hasUXPermission(user, ['admin', 'editor', 'writer']); }
+            read:       function (user, obj) {  return checkUXRolePermissions(user, ['admin', 'editor', 'writer']); },
+            list:       function (user, obj) {  return checkUXRolePermissions(user, ['admin', 'editor', 'writer']); },
+            update:     function (user, obj) {  return checkUXRolePermissions(user, ['admin', 'editor', 'writer']); }
         }
 
         var permissionsDict = {
